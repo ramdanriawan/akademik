@@ -1,0 +1,35 @@
+<%include ../layouts/header/header %>
+<%include ../layouts/navbar/navbar %>
+<div class="container">
+    <div class="card">
+        <div class="card-body" ng-if='"<%= success %>" != ""'>
+            <div class="alert alert-success">
+                <%= success %>
+            </div>
+        </div>
+        <div class="card-header">
+            <h4 class="card-title">Detail Profile <%= mahasiswa.nama %></h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr><th>Sebagai</th><td>:</td><td><%= mahasiswa.sebagai %></td></tr>
+                        <tr><th>Nim</th><td>:</td><td><%= mahasiswa.nim %></td></tr>
+                        <tr><th>Nama</th><td>:</td><td><%= mahasiswa.nama %></td></tr>
+                        <tr><th>Email</th><td>:</td><td><%= mahasiswa.email %></td></tr>
+                        <tr><th>Aksi</th><td>:</td>
+                            <td>
+                                <form method="post" action='./<%= mahasiswa.nim %>'>
+                                    <input type="hidden" name='_method' value="delete">
+                                    <button class="btn btn-info" type='button' onclick='location.href = "./<%= mahasiswa.nim %>/edit"'>Edit</button>
+                                    <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin akan mendelete akun')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

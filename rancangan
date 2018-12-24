@@ -1,0 +1,16 @@
+mahasiswa
+    - register
+        - nim
+        - nama
+        - email
+        - password
+        - repeat password
+
+    - login
+        - nim
+        - password
+
+dosen
+    - register 
+        - sama
+        - kdDosen

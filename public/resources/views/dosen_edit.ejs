@@ -1,0 +1,44 @@
+<% include ../layouts/header/header %>
+<% include ../layouts/navbar/navbar %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card" ng-controller='RegisterController'>
+                <div class="card-header">
+                    <h4 class="card-title">Edit Dosen <%= dosen.nama %></h4>
+                </div>
+                <div class="card-body">
+                    <form action='/dosen/<%= dosen.nim %>' method="post">
+                        <div class='form-group'>
+                            <label for='nim'>Nim</label>
+                            <input class='form-control' name='nim' placeholder="8020160186" type='number' minlength='10' maxlength="10" required value='<%= dosen.nim %>'>
+                        </div>
+                        <div class='form-group'>
+                            <label for='nim'>Nama</label>
+                            <input class='form-control' name='nama' placeholder="Ramdan Riawan" type='text' required value='<%= dosen.nama %>'>
+                        </div>
+                        <div class='form-group'>
+                            <label for='nim'>Email</label>
+                            <input class='form-control' name='email' placeholder="example@mail.com" type='email' required value='<%= dosen.email %>'>
+                        </div>
+                        <div class='form-group'>
+                            <label for='nim'>Password</label>
+                            <input class='form-control' name='password' ng-model='password' placeholder="Password" type='password' required value='<%= dosen.password %>'>
+                        </div>
+                        <div class='form-group'>
+                            <label for='nim'>Repeat Password</label>
+                            <input class='form-control' name='repeatPassword'  ng-model='repeatPassword' placeholder="Repeat Password" type='password' required value='<%= dosen.repeatPassword %>'>
+                        </div>
+                        <div ng-if='password != repeatPassword'>
+                            <div class="alert alert-danger">Password Tidak Sama!</div>
+                        </div>
+                        <div class="form-group" ng-if='password == repeatPassword'>
+                            <button class="btn btn-primary" type='submit'>Register</button>
+                            <button class="btn btn-warning" type='reset'>Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
